@@ -2,17 +2,19 @@ import { ActionType } from '../action-types';
 import { Action } from '../actions';
 
 //Type for state object
-interface RepositoryState {
+export interface RepositoryState {
 	loading: boolean;
 	error: string | null;
 	data: string[];
 }
+//creating an intial state
+const initialState = { loading: false, error: null, data: [] };
 
 //Main reducer function for dispatch handling
 //The switch statements are acting as an if statement for the type
 //The cases handled by the enum 'ActionType' removes any chance of error
 function repositotiesReducer(
-	state: RepositoryState,
+	state: RepositoryState = initialState,
 	action: Action
 ): RepositoryState {
 	switch (action.type) {

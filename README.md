@@ -24,7 +24,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 1. Additional Packages used: `react-redux`,`redux`,`redux-thunk`,`axios`,`daisyui`,`tailwindcss`
 
-2. API client for test project: `registry.npmjs.org/-/v1/search?text=`
+2. API client for test project: `registry.npmjs.org/-/v1/search?text=''`
 
 3. Export Modules: All modules in ./src with ext of html,js,ts,jsx,tsx
 
