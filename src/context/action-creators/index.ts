@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 import { ActionType } from '../action-types';
 import { Action } from '../actions';
-import { DATABASE } from '../../env/variables';
+const DATABASE = process.env.REACT_APP_DATABASE;
 
 //creating an async function for fetching our data
 
@@ -15,6 +15,9 @@ export const searchRepositories = (term: string) => {
 	return async (dispatch: Dispatch<Action>) => {
 		dispatch({ type: ActionType.SEARCH_REPOSITORIES });
 		try {
+			if (!DATABASE) {
+				return;
+			}
 			const { data } = await axios.get(DATABASE, { params: { text: term } });
 			const names = data.objects.map((result: any) => {
 				return result.package.name;
